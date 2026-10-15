@@ -1,0 +1,11 @@
+# Netlify 配置
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA 路由回退：解决 /album/life 等子页面刷新后 404 的问题
+# 所有非文件请求都返回 /index.html，由 React Router 处理路由
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
